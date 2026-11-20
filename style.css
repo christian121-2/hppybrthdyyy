@@ -1,121 +1,91 @@
-/* Extra playful motion for the open letter */
+/* Letter animation - restored and isolated */
 .letter__border .letter {
-    position: relative;
-    overflow: hidden;
-    animation: letterGlow 4s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  animation: letterGlow 4s ease-in-out infinite;
 }
 
 @keyframes letterGlow {
-    0%, 100% { box-shadow: inset 0 0 0 rgba(255, 120, 130, 0); }
-    50% { box-shadow: inset 0 0 28px rgba(255, 120, 130, .16); }
+  0%, 100% { box-shadow: inset 0 0 0 rgba(255, 120, 130, 0); }
+  50% { box-shadow: inset 0 0 28px rgba(255, 120, 130, .16); }
 }
 
 .letter__border .letter .title__letter {
-    position: relative;
-    z-index: 3;
-    animation: titleBounce 2.4s ease-in-out infinite;
+  position: relative;
+  z-index: 3;
+  animation: titleBounce 2.4s ease-in-out infinite;
 }
 
 @keyframes titleBounce {
-    0%, 100% { transform: translateY(0) rotate(0); }
-    50% { transform: translateY(-3px) rotate(-1deg); }
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-3px) rotate(-1deg); }
 }
 
+/* Decorative elements only; these rules do not change page layout. */
 .content__letter .left::before,
 .content__letter .left::after,
 .content__letter .right::before,
 .content__letter .right::after {
-    position: absolute;
-    z-index: 2;
-    pointer-events: none;
-    opacity: 0;
-    font-size: 1.5rem;
-    animation: letterEmojiFloat 3.8s ease-in-out infinite;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  font-size: 1.5rem;
+  animation: letterEmojiFloat 3.8s ease-in-out infinite;
 }
 
 .content__letter .left::before {
-    content: "💖";
-    left: 8%;
-    top: 16%;
+  content: "💖";
+  left: 8%;
+  top: 16%;
 }
 
 .content__letter .left::after {
-    content: "✨";
-    right: 12%;
-    bottom: 14%;
-    font-size: 1.3rem;
-    animation-delay: .9s;
+  content: "✨";
+  right: 12%;
+  bottom: 14%;
+  font-size: 1.3rem;
+  animation-delay: .9s;
 }
 
 .content__letter .right::before {
-    content: "💕";
-    left: 4%;
-    top: 20%;
-    animation-delay: 1.5s;
+  content: "💕";
+  left: 4%;
+  top: 20%;
+  animation-delay: 1.5s;
 }
 
 .content__letter .right::after {
-    content: "🌟";
-    right: 5%;
-    bottom: 13%;
-    animation-delay: 2.2s;
+  content: "🌟";
+  right: 5%;
+  bottom: 13%;
+  animation-delay: 2.2s;
 }
 
 @keyframes letterEmojiFloat {
-    0% { opacity: 0; transform: translateY(16px) scale(.65) rotate(-12deg); }
-    20%, 75% { opacity: .9; }
-    50% { transform: translateY(-10px) scale(1.12) rotate(12deg); }
-    100% { opacity: 0; transform: translateY(-24px) scale(.75) rotate(-8deg); }
+  0% { opacity: 0; transform: translateY(16px) scale(.65) rotate(-12deg); }
+  20%, 75% { opacity: .9; }
+  50% { transform: translateY(-10px) scale(1.12) rotate(12deg); }
+  100% { opacity: 0; transform: translateY(-24px) scale(.75) rotate(-8deg); }
 }
 
 .content__letter .right .text__letter {
-    animation: messagePulse 3.2s ease-in-out infinite;
+  animation: messagePulse 3.2s ease-in-out infinite;
 }
 
 @keyframes messagePulse {
-    0%, 100% { box-shadow: 0 4px 12px rgba(255, 120, 130, .08); }
-    50% { box-shadow: 0 6px 20px rgba(255, 120, 130, .24); }
-}
-
-/* Give the picture panel on the left a lively glow and extra floating sparkle. */
-.content__letter .left {
-    position: relative;
-    isolation: isolate;
-    border-radius: 16px;
-    animation: leftPartyGlow 2.8s ease-in-out infinite;
-}
-
-.content__letter .left::before,
-.content__letter .left::after {
-    text-shadow: 0 0 10px rgba(255, 105, 150, .8);
-    animation-duration: 2.7s;
-}
-
-.content__letter .left::before {
-    left: 5%;
-    top: 10%;
-}
-
-.content__letter .left::after {
-    right: 6%;
-    bottom: 12%;
-    animation-delay: .65s;
-}
-
-@keyframes leftPartyGlow {
-    0%, 100% { box-shadow: inset 0 0 10px rgba(255, 120, 160, .08); }
-    50% { box-shadow: inset 0 0 30px rgba(255, 120, 160, .28), 0 0 18px rgba(255, 190, 210, .2); }
+  0%, 100% { box-shadow: 0 4px 12px rgba(255, 120, 130, .08); }
+  50% { box-shadow: 0 6px 20px rgba(255, 120, 130, .24); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .letter__border .letter,
-    .letter__border .letter .title__letter,
-    .content__letter .left,
-    .content__letter .left::before,
-    .content__letter .left::after,
-    .content__letter .right::before,
-    .content__letter .right::after,
-    .content__letter .right .text__letter {
-        animation: none;
-    }
+  .letter__border .letter,
+  .letter__border .letter .title__letter,
+  .content__letter .left::before,
+  .content__letter .left::after,
+  .content__letter .right::before,
+  .content__letter .right::after,
+  .content__letter .right .text__letter {
+    animation: none;
+  }
 }
