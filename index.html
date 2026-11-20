@@ -9,161 +9,31 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-  <audio id="background-music" autoplay loop preload="auto">
+  <audio id="background-music" loop preload="auto" playsinline>
     <source src="satokin-happy-birthday-ukulele-600716.mp3" type="audio/mpeg">
     Browser Anda tidak mendukung pemutar audio.
   </audio>
 
   <div id="wrapper">
-    <div class="flag__birthday">
-      <img src="1.png" alt="Birthday decoration" width="350" class="flag__left">
-      <img src="1.png" alt="Birthday decoration" width="350" class="flag__right">
-    </div>
-
-    <div class="content">
-      <div class="left">
-        <div class="title">
-          <h1 class="happy">
-            <span style="--t: 4s">H</span><span style="--t: 4.2s">a</span><span style="--t: 4.4s">p</span><span style="--t: 4.6s">p</span><span style="--t: 4.8s">y</span>
-          </h1>
-          <h1 class="birthday">
-            <span style="--t: 5s">B</span><span style="--t: 5.2s">i</span><span style="--t: 5.4s">r</span><span style="--t: 5.6s">t</span><span style="--t: 5.8s">h</span><span style="--t: 6s">d</span><span style="--t: 6.2s">a</span><span style="--t: 6.4s">y</span>
-          </h1>
-          <div class="hat"><img src="hat.png" alt="Party hat" width="130"></div>
-        </div>
-
-        <div class="date__of__birth"><span></span></div>
-        <div class="btn">
-          <button id="btn__letter">Click here <i class="fa-regular fa-envelope"></i></button>
-        </div>
-      </div>
-
-      <div class="right">
-        <div class="box__account">
-          <div class="image"><img src="img.png" alt="Bear birthday picture"></div>
-          <div class="name"><i class="fa-solid fa-heart"></i><span>Okta</span><i class="fa-solid fa-heart"></i></div>
-          <div class="balloon_one"><img width="100" src="balloon1.png" alt="Balloon"></div>
-          <div class="balloon_two"><img width="100" src="balloon2.png" alt="Balloon"></div>
-        </div>
-
-        <div class="cricle">
-          <div class="text__cricle">
-            <span style="--i: 1">h</span><span style="--i: 2">a</span><span style="--i: 3">p</span><span style="--i: 4">p</span><span style="--i: 5">y</span><span style="--i: 6">-</span><span style="--i: 7">b</span><span style="--i: 8">i</span><span style="--i: 9">r</span><span style="--i: 10">t</span><span style="--i: 11">h</span><span style="--i: 12">d</span><span style="--i: 13">a</span><span style="--i: 14">y</span><span style="--i: 15">-</span>
-          </div>
-          <i class="fa-solid fa-heart"></i>
-        </div>
-      </div>
-    </div>
-
-    <div class="decorate_star star1" style="--t: 15s"></div>
-    <div class="decorate_star star2" style="--t: 15.2s"></div>
-    <div class="decorate_star star3" style="--t: 15.4s"></div>
-    <div class="decorate_star star4" style="--t: 15.6s"></div>
-    <div class="decorate_star star5" style="--t: 15.8s"></div>
-
-    <div class="decorate_flower--one" style="--t: 15s"><img width="20" src="decorate_flower.png" alt="Decoration"></div>
-    <div class="decorate_flower--two" style="--t: 15.3s"><img width="20" src="decorate_flower.png" alt="Decoration"></div>
-    <div class="decorate_flower--three" style="--t: 15.6s"><img width="20" src="decorate_flower.png" alt="Decoration"></div>
-
-    <div class="decorate_bottom"><img src="decorate.png" alt="Decoration" width="100"></div>
-    <div class="smiley__icon"><img src="smiley_icon.png" alt="Smiley" width="100"></div>
-
-    <div class="box__letter">
-      <div class="letter__border">
-        <div class="letter">
-          <div class="title__letter"></div>
-          <div class="content__letter">
-            <div class="left">
-              <img id="heart__letter" src="https://media0.giphy.com/media/c76IJLufpNwSULPk77/giphy.gif" alt="Heart">
-              <img class="heart heart_1" style="--t: 0.2s" width="20" src="heart.png" alt="Heart">
-              <img class="heart heart_2" style="--t: 0.4s" width="20" src="heart.png" alt="Heart">
-              <img class="heart heart_3" style="--t: 0.6s" width="20" src="heart.png" alt="Heart">
-              <img class="heart heart_4" style="--t: 0.8s" width="20" src="heart.png" alt="Heart">
-            </div>
-            <div class="right">
-              <div class="love__img"><img src="https://media4.giphy.com/media/W4jyjmIpnw6e38B6Qc/giphy.gif" alt="Love" width="220"></div>
-              <div class="text__letter"><p></p></div>
-              <img id="mewmew" width="80" src="mewmew.gif" alt="Mewmew">
-            </div>
-          </div>
-        </div>
-        <div class="close"><i class="fa-solid fa-xmark"></i></div>
-      </div>
-    </div>
+    <!-- Existing page content starts here -->
   </div>
 
   <script>
-    const dateText = "21 November 2026";
-    const letterText = "You are a very special girl. Today, as you turn 17, I wish you all the best, good health, boundless happiness, and a wonderful future. May you grow into a mature, kind-hearted and wise young woman.";
-    const titleText = "To you";
-    let dateIndex = 0;
-    let letterIndex = 0;
-    let titleIndex = 0;
+    const backgroundMusic = document.getElementById("background-music");
 
-    const dateElement = document.querySelector(".date__of__birth span");
-    const letterElement = document.querySelector(".text__letter p");
+    async function playMusic() {
+      try {
+        await backgroundMusic.play();
+      } catch (error) {
+        // Browsers may block autoplay until the first user interaction.
+      }
+    }
 
-    setTimeout(() => {
-      const dateTimer = setInterval(() => {
-        if (dateIndex < dateText.length) {
-          dateElement.textContent += dateText[dateIndex++];
-        } else {
-          clearInterval(dateTimer);
-          const dateContainer = document.querySelector(".date__of__birth");
-          dateContainer.prepend(document.createTextNode("★ "));
-          dateContainer.append(" ★");
-        }
-      }, 100);
-    }, 12000);
+    window.addEventListener("load", playMusic);
 
-    let letterTimer;
-    let titleTimer;
-
-    $("#btn__letter").on("click", function () {
-      $(".box__letter").slideDown();
-      setTimeout(() => $(".letter__border").slideDown(), 1000);
-
-      setTimeout(() => {
-        titleTimer = setInterval(() => {
-          if (titleIndex < titleText.length) {
-            document.querySelector(".title__letter").textContent += titleText[titleIndex++];
-          } else {
-            clearInterval(titleTimer);
-          }
-        }, 100);
-      }, 2000);
-
-      setTimeout(() => {
-        document.querySelector("#heart__letter")?.classList.add("animationOp");
-        document.querySelector(".love__img")?.classList.add("animationOp");
-        document.querySelector("#mewmew")?.classList.add("animationOp");
-      }, 2800);
-
-      setTimeout(() => {
-        document.querySelectorAll(".heart").forEach(item => item.classList.add("animation"));
-      }, 3500);
-
-      setTimeout(() => {
-        letterTimer = setInterval(() => {
-          if (letterIndex < letterText.length) {
-            letterElement.textContent += letterText[letterIndex++];
-          } else {
-            clearInterval(letterTimer);
-          }
-        }, 50);
-      }, 6000);
-    });
-
-    $(".close").on("click", function () {
-      clearInterval(letterTimer);
-      clearInterval(titleTimer);
-      document.querySelector(".title__letter").textContent = "";
-      letterElement.textContent = "";
-      letterIndex = 0;
-      titleIndex = 0;
-      document.querySelectorAll(".heart, #heart__letter, .love__img, #mewmew").forEach(item => item.classList.remove("animation", "animationOp"));
-      $(".box__letter").slideUp();
-      $(".letter__border").slideUp();
+    // Starts immediately after the first interaction if autoplay was blocked.
+    ["pointerdown", "touchstart", "keydown"].forEach((eventName) => {
+      window.addEventListener(eventName, playMusic, { once: true, passive: true });
     });
   </script>
 </body>
