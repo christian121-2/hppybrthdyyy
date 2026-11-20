@@ -1,4 +1,4 @@
-/* Responsive overrides for phones and small tablets */
+/* Mobile layout - clean responsive overrides */
 @media screen and (max-width: 658px) {
   html,
   body,
@@ -12,6 +12,7 @@
   }
 
   #wrapper {
+    width: 100%;
     min-height: 100svh;
     height: auto;
     background-size: 56px 56px;
@@ -35,10 +36,13 @@
 
   .content {
     min-height: calc(100svh - 82px);
+    height: auto;
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: clamp(18px, 4svh, 32px);
-    padding: 10px 12px 36px;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 12px 28px;
   }
 
   .content .left,
@@ -47,10 +51,12 @@
   }
 
   .content .left {
+    min-height: 220px;
     padding-left: 0;
   }
 
   .title {
+    width: 100%;
     font-size: clamp(1.55rem, 8vw, 2.25rem);
     letter-spacing: clamp(1px, 1.2vw, 6px);
   }
@@ -70,7 +76,7 @@
   }
 
   .date__of__birth {
-    margin-top: 16px;
+    margin-top: 14px;
   }
 
   @keyframes dateOfBirth {
@@ -102,7 +108,7 @@
   }
 
   .left .btn {
-    margin-top: -4px;
+    margin-top: -2px;
   }
 
   #btn__letter {
@@ -112,7 +118,7 @@
   }
 
   .content .right {
-    min-height: clamp(270px, 44svh, 360px);
+    min-height: clamp(250px, 42svh, 330px);
   }
 
   .right .box__account {
@@ -176,6 +182,7 @@
   .smiley__icon { left: auto; right: 8px; bottom: 90px; }
   .decorate_bottom { bottom: -8px; }
 
+  /* Letter popup */
   .box__letter {
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
@@ -207,6 +214,7 @@
 
   .letter__border .letter .content__letter {
     height: calc(100% - 48px);
+    display: flex;
     padding: 4px 4px 56px;
   }
 
@@ -284,7 +292,11 @@
 
 @media screen and (max-height: 700px) and (max-width: 658px) {
   .content {
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .content .left {
+    min-height: 200px;
   }
 
   .right .box__account,
@@ -297,7 +309,7 @@
   }
 
   .content .right {
-    min-height: 270px;
+    min-height: 250px;
   }
 
   .box__letter .letter__border {
