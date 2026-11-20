@@ -229,8 +229,8 @@
     max-height: calc(100% - 48px);
     overflow-y: auto;
     padding: 10px 9px;
-    font-size: clamp(.86rem, 4vw, 1.02rem);
-    line-height: 1.32;
+    font-size: clamp(.78rem, 3.7vw, .95rem);
+    line-height: 1.28;
   }
 
   .content__letter .right .love__img {

@@ -586,8 +586,8 @@ body {
     margin-top: 60px;
     padding: 20px 15px 10px 15px;
     font-family: 'Dancing Script', cursive;
-    font-size: 1.35rem;
-    line-height: 1.32;
+    font-size: 1.2rem;
+    line-height: 1.28;
     background-color: rgba(255, 248, 228, 0.96);
     border-radius: 10px;
 }
@@ -745,8 +745,8 @@ body {
         margin-top: 20px;
         padding: 12px 12px 8px 12px;
         font-family: 'Dancing Script', cursive;
-        font-size: .92rem;
-        line-height: 1.32;
+        font-size: .82rem;
+        line-height: 1.22;
         background-color: rgba(255, 248, 228, 0.94);
         border-radius: 8px;
     }
