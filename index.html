@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#feecea">
   <title>Birthday Gift</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
@@ -31,7 +33,7 @@
           <div class="hat"><img src="hat.png" alt="Party hat" width="130"></div>
         </div>
         <div class="date__of__birth"><span></span></div>
-        <div class="btn"><button id="btn__letter">Click here <i class="fa-regular fa-envelope"></i></button></div>
+        <div class="btn"><button id="btn__letter" type="button">Click here <i class="fa-regular fa-envelope"></i></button></div>
       </div>
 
       <div class="right">
@@ -80,7 +82,7 @@
             </div>
           </div>
         </div>
-        <div class="close"><i class="fa-solid fa-xmark"></i></div>
+        <div class="close" role="button" tabindex="0" aria-label="Close letter"><i class="fa-solid fa-xmark"></i></div>
       </div>
     </div>
   </div>
@@ -143,7 +145,7 @@
       }, 6000);
     });
 
-    $(".close").on("click", function () {
+    function closeLetter() {
       clearInterval(letterTimer);
       clearInterval(titleTimer);
       document.querySelector(".title__letter").textContent = "";
@@ -153,7 +155,9 @@
       document.querySelectorAll(".heart, #heart__letter, .love__img, #mewmew").forEach(item => item.classList.remove("animation", "animationOp"));
       $(".box__letter").slideUp();
       $(".letter__border").slideUp();
-    });
+    }
+
+    $(".close").on("click", closeLetter);
   </script>
 </body>
 </html>
