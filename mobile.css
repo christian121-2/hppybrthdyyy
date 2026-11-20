@@ -316,3 +316,51 @@
     height: calc(100svh - 20px);
   }
 }
+
+/* Small, playful motion for the portrait and letter decorations */
+.content .right .image img {
+  animation: portraitBreathe 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes portraitBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.035); }
+}
+
+.decorate_flower img {
+  transform-origin: center;
+  animation: flowerWiggle 3s ease-in-out infinite;
+}
+
+@keyframes flowerWiggle {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(7deg); }
+}
+
+.content__letter .right .love__img img {
+  animation: loveFloat 3s ease-in-out infinite;
+}
+
+@keyframes loveFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-7px) rotate(2deg); }
+}
+
+.content__letter .right #mewmew {
+  animation: mewBob 2.6s ease-in-out infinite;
+}
+
+@keyframes mewBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content .right .image img,
+  .decorate_flower img,
+  .content__letter .right .love__img img,
+  .content__letter .right #mewmew {
+    animation: none;
+  }
+}
